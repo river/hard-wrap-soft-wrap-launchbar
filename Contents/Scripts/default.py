@@ -21,7 +21,7 @@ for i in range(len(input)-1):
   # max line length, then this was likely due to a hard line wrap
   if (len(first_word_this_line)+len(last_line)+1) > max_len:
     # this was a hard line wrap, so should append this line to the last one
-    output[-1] = output[-1]+' '+this_line
+    output[-1] = output[-1]+' '+this_line.strip()
   else:
     # this was an intentional line break
     output.append(this_line)
