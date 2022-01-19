@@ -4,12 +4,16 @@
 #
 import sys
 import json
+import subprocess
 
 input = sys.argv[1]
+
+
 
 input = input.splitlines()
 max_len = len(max(input))
 output = [input[0]]
+
 for i in range(len(input)-1):
   last_line = input[i]
   this_line = input[i+1]
@@ -25,7 +29,18 @@ for i in range(len(input)-1):
   else:
     # this was an intentional line break
     output.append(this_line)
+
 output = '\n\n'.join(output)
+
+# copy to clipboard
+def write_to_clipboard(output):
+    process = subprocess.Popen(
+        'pbcopy', env={'LANG': 'en_US.UTF-8'}, stdin=subprocess.PIPE)
+    process.communicate(output.encode('utf-8'))
+
+write_to_clipboard(output)
+
+
 
 
 # dump into json output
