@@ -13,9 +13,12 @@ output = [input[0]]
 for i in range(len(input)-1):
   last_line = input[i]
   this_line = input[i+1]
+
+  # choose first word in line
+  first_word_this_line = this_line.strip().split(' ')[0]
+
   # if the first word of this line added to the last line tips it over the 
   # max line length, then this was likely due to a hard line wrap
-  first_word_this_line = this_line.split(' ')[0]
   if (len(first_word_this_line)+len(last_line)+1) > max_len:
     # this was a hard line wrap, so should append this line to the last one
     output[-1] = output[-1]+' '+this_line
