@@ -1,0 +1,1 @@
+# How to install\nPut everything into a folder called `Convert hard wrap to soft wrap.lbaction` to create the bundle. Double-click the bundle to install it or move it to your `~/Library/Application Support/LaunchBar/Actions` folder.
